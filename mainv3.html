@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Instant Quote</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="stylesv3.css">
+</head>
+
+<body>
+
+    <div class="mainsection">
+        <div class="formwrapper">
+            <form id="form-user" action="/send-email.php" method="post">
+                
+                <div class="form-group">
+                    <h3>Address of job *</h3>
+                    <label>
+                        <input type="text" maxlength="256" name="address" data-name="GPA"
+                            placeholder="Please enter your address" id="gpa" autocomplete="off" required>
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <h3>Contact Details *</h3>
+                    <label>
+                        <input type="text" maxlength="256" name="name" placeholder="Name">
+                    </label>
+                    <label>
+                        <input type="tel" maxlength="256" name="phone" placeholder="Phone Number">
+                    </label>
+
+                </div>
+                <div class="form-group">
+                    <h3>Mowing Size *</h3>
+                    <div class="imagerow">
+                        <div class="col colimage">
+                            <label>
+                                <input onclick="mowingSizeSelected()" type="radio" id="small-picture" name="size"
+                                    value="1" print="small">
+                                <img src="https://uploads-ssl.webflow.com/63a293a97adfdc6a41a9014e/63ac07dd268d185b246517e5_sizes_HEDGING%20copy%202_HEDGING%20copy.png"
+                                    alt="Option 1">
+                            </label>
+                        </div>
+                        <div class="col colimage">
+                            <label>
+                                <input onclick="mowingSizeSelected()" type="radio" id="medium-picture" name="size"
+                                    value="1.3" print="medium">
+                                <img src="https://uploads-ssl.webflow.com/63a293a97adfdc6a41a9014e/63ac07ddfdf77fb4e27ccda6_sizes_HEDGING%20copy%202_HEDGING%20copy%202.png"
+                                    alt="Option 2">
+                            </label>
+                        </div>
+                        <div class="col colimage">
+                            <label>
+                                <input onclick="mowingSizeSelected()" type="radio" id="large-picture" name="size"
+                                    value="1.6" print="large">
+                                <img src="https://uploads-ssl.webflow.com/63a293a97adfdc6a41a9014e/63ac07de05d2aa154ba60314_sizes_HEDGING%20copy%202_HEDGING%20copy%203.png"
+                                    alt="Option 2">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="qu2">
+                    <h3>Grass Height *</h3>
+                    <div class="row rmargin">
+                        <div class="col">
+                            <input onclick="lengthSelected()" type="radio" name="grassLength" id="option-1" value="1">
+                            <label for="option-1" class="option option-1">
+                                <div class="dot"></div>
+                                <span id="anklePrice">Ankle | +$0.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="lengthSelected()" type="radio" name="grassLength" id="option-2"
+                                value="1.25">
+                            <label for="option-2" class="option option-2">
+                                <div class="dot"></div>
+                                <span id="longPrice">Long | +$16.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="lengthSelected()" type="radio" name="grassLength" id="option-3" value="1.5">
+                            <label for="option-3" class="option option-3">
+                                <div class="dot"></div>
+                                <span id="overgrownPrice">Overgrown | +$33.00</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="qu3">
+                    <h3>Grass Clippings *</h3>
+                    <div class="row rmargin">
+                        <div class="col">
+                            <input onclick="grassClippingsSelected()" type="radio" name="grassClippings" id="option-4"
+                                value="0">
+                            <label for="option-4" class="option option-4">
+                                <div class="dot"></div>
+                                <span id="compostPrice">Compost Heap | $0.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="grassClippingsSelected()" type="radio" name="grassClippings" id="option-5"
+                                value="10">
+                            <label for="option-5" class="option option-5">
+                                <div class="dot"></div>
+                                <span id="greenBinPrice">Green Bin | $13.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="grassClippingsSelected()" type="radio" name="grassClippings" id="option-6"
+                                value="20">
+                            <label for="option-6" class="option option-6">
+                                <div class="dot"></div>
+                                <span id="offsitePrice">Offsite Removal | $26.00</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="qu4">
+                    <h3>Lawn Growing/Weed Spray<label class="form-group cart-button remove">
+                            <cancel id="button-remove" onclick="resetRadio('option-7','option-8','option-9',1)">Remove
+                            </cancel>
+                        </label></h3>
+                    <div class="row rmargin">
+
+                        <div class="col">
+                            <input onclick="spraySelected()" type="radio" name="lawnSpray" id="option-9" value="0">
+                            <label for="option-9" class="option option-9">
+                                <div class="dot"></div>
+                                <span id="lawnSprayHelp">Dying Patches | $20</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="spraySelected()" type="radio" name="lawnSpray" id="option-8" value="1">
+                            <label for="option-8" class="option option-8">
+                                <div class="dot"></div>
+                                <span id="lawnSprayHalf">Half Lawn | $43</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="spraySelected()" type="radio" name="lawnSpray" id="option-7" value="2">
+                            <label for="option-7" class="option option-7">
+                                <div class="dot"></div>
+                                <span id="lawnSprayWhole">Whole Lawn | $66</span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group hidden" id="qu5">
+                    <h3>Larger Weed Removal<label class="form-group cart-button remove">
+                            <cancel id="button-remove" onclick="resetRadio('option-10','option-11','option-12',2)">
+                                Remove
+                            </cancel>
+                        </label></h3>
+
+                    <div class="row rmargin">
+                        <div class="col">
+                            <input onclick="calculatevalue()" type="radio" name="weedRemoval" id="option-10" value="0">
+                            <label for="option-10" class="option option-10">
+                                <div class="dot"></div>
+                                <span id="compostPrice">Compost Heap | $0.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="calculatevalue()" type="radio" name="weedRemoval" id="option-11" value="0">
+                            <label for="option-11" class="option option-11">
+                                <div class="dot"></div>
+                                <span id="compostPrice">Compost Heap | $0.00</span>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <input onclick="calculatevalue()" type="radio" name="weedRemoval" id="option-12" value="0">
+                            <label for="option-12" class="option option-12">
+                                <div class="dot"></div>
+                                <span id="compostPrice">Compost Heap | $0.00</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="cartspacer">
+            <b class="carttext"> Quote Summary: </b>
+            <div class="form-group cart">
+                <b class="carttext"> Quote Summary: </b>
+                <ul class="cartlist">
+                    <li class="itemwrapper">
+                        <div class="carttext">
+                            <span id="mowingSize" class="cartitems">Mowing Size: -- |</span>
+                            <span id="mowingSizePrice" class="cartitems">$0</span>
+                        </div>
+                    </li>
+                    <li class="itemwrapper">
+                        <div class="carttext">
+                            <span id="mowingHeight" class="cartitems">Height: -- |</span>
+                            <span id="mowingHeightPrice" class="cartitems">+$0</span>
+                        </div>
+                    </li>
+                    <li class="itemwrapper">
+                        <div class="carttext">
+                            <span id="mowingGrass" class="cartitems">Grass: -- |</span>
+                            <span id="mowingGrassPrice" class="cartitems">$0</span>
+                        </div>
+                    </li>
+                    <li class="itemwrapper">
+                        <div class="carttext">
+                            <span id="lawnSpray" class="cartitems">Spray: -- |</span>
+                            <span id="lawnSprayPrice" class="cartitems">$0</span>
+                        </div>
+                    </li>
+                </ul>
+                <hr class="cartdivider">
+                <div class="cartinfo">
+                    <label class="form-group cart-button">
+                        <cancel id="button-cancel">Cancel</cancel>
+                    </label>
+                    <b id="cartValue" class="cartitemsfinal">Total quote: $78.00</b>
+
+                    <label class="form-group cart-button">
+                        <send id="button-send">Send</send>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="rightFloater">
+            
+        </div>
+    </div>
+    <!-- Load Google Places API -->
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzQJQoS__thvctNAw0GnSR4StSe2Jh5AM&libraries=places"></script>
+
+    <!-- Set autocomplete input -->
+    <script>
+        const options = {
+            componentRestrictions: { country: "au" },
+        };
+        var gpaInput = document.getElementById("gpa");
+        var autocomplete = new google.maps.places.Autocomplete(gpaInput,options);
+    </script>
+
+</body>
+<script src="./formsv3.js">
+    //<img src="https://i.ibb.co/7QsCk1b/MEDIUM.png">
+    /*<div class="form-group">
+        <div class="row rmargin">
+                        <div class="col">
+                            <input onclick="calculatevalue()" type="radio" name="grassClippings" id="option-4" value="0"
+                                >
+                            <label for="option-4" class="option option-4">
+                                <div class="dot"></div>
+                                <span id="compostPrice">Compost Heap | $0.00</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                */
+</script>
+
+</html>
